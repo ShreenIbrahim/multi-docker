@@ -12,17 +12,17 @@ script:
         - docker run -e CI=true shereen/react-test npm test
 
 after_success:
-        - docker build -t shereen/multi-client ./client
-        - docker build -t shereen/multi-nginx ./nginx
-        - docker build -t shereen/multi-server ./server
-        - docker build -t shereen/multi-worker ./worker        
+        - docker build -t shreenibrahim/multi-client ./client
+        - docker build -t shreenibrahim/multi-nginx ./nginx
+        - docker build -t shreenibrahim/multi-server ./server
+        - docker build -t shreenibrahim/multi-worker ./worker        
 #login to docker cli
 
         - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 
 #upload the images to docker hub
 
-        - docker push shereen/multi-client
-        - docker push shereen/multi-nginx
-        - docker push shereen/multi-server
-        - docker push shereen/multi-worker 
+        - docker push shreenibrahim/multi-client
+        - docker push shreenibrahim/multi-nginx
+        - docker push shreenibrahim/multi-server
+        - docker push shreenibrahim/multi-worker 
