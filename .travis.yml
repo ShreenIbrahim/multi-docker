@@ -1,17 +1,17 @@
-
 sudo: required
 
 services:
         - docker
 
 before_install:
-        - docker build -t shereen/react-test -f ./client/Dockerfile.dev ./client
+        - docker build -t shreenibrahim/react-test -f ./client/Dockerfile.dev ./client
 
 
 script:
-        - docker run -e CI=true shereen/react-test npm test
+        - docker run -e CI=true shreenibrahim/react-test npm test
 
 after_success:
+
         - docker build -t shreenibrahim/multi-client ./client
         - docker build -t shreenibrahim/multi-nginx ./nginx
         - docker build -t shreenibrahim/multi-server ./server
