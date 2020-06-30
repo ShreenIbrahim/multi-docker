@@ -8,7 +8,7 @@
 			"image": "shreenibrahim/multi-client",
 			"hostname": "client",
 			"essential": false,
-			"memory": 100
+			"memory": 250
 		},
 
 		  {
@@ -24,7 +24,7 @@
                         "name": "worker",
                         "image": "shreenibrahim/multi-worker",
                         "hostname": "worker",
-                        "essential": true,
+                        "essential": false,
 			"memory": 100
 
                 },
@@ -33,7 +33,7 @@
                         "name": "nginx",
                         "image": "shreenibrahim/multi-nginx",
                         "hostname": "nginx",
-			"essential": false,
+			"essential": true,
 			"portMappings": [
 				{ 
 					"hostPort": 80,
