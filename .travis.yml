@@ -25,4 +25,22 @@ after_success:
         - docker push shreenibrahim/multi-client
         - docker push shreenibrahim/multi-nginx
         - docker push shreenibrahim/multi-server
-        - docker push shreenibrahim/multi-worker 
+        - docker push shreenibrahim/multi-worker
+
+
+deploy:
+         edge: true
+         provider: elasticbeanstalk
+         region: eu-west-1
+         app : multi-docker
+         env: MultiDocker-env
+         bucket_name: elasticbeanstalk-eu-west-1-233568125301
+         bucket_path: docker-multi
+         on:
+                 branch: master
+         access_key_id: $AWS_ACCESS_KEY
+         secret_access_key : 
+          secure: $AWS_SECRET_KEY
+
+
+                
